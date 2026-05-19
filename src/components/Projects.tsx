@@ -4,21 +4,34 @@ import { motion } from "framer-motion";
 
 const PROJECTS = [
   {
-    name: "GENIE",
-    tagline: "Your AI Wish-Fulfillment Engine",
+    name: "ALIGN",
+    tagline: "Productivity PWA",
     description:
-      "An intelligent manifestation assistant that translates your goals into structured daily actions — using AI to bridge intention and execution.",
-    tags: ["Next.js", "Claude API", "Manifestation AI"],
+      "Progressive Web App for time-blocking and habit tracking. Offline-capable with IndexedDB persistence, push notifications, and a visual daily planner interface.",
+    tags: ["PWA", "IndexedDB", "Service Worker"],
+    accent: "#BFFF00",
+    accentRgb: "191,255,0",
+    icon: "▣",
+    status: "Live",
+    link: "https://hk1431.github.io/align-app/align.html",
+  },
+  {
+    name: "GENIE",
+    tagline: "AI Goal-to-Action Engine",
+    description:
+      "AI-powered app that breaks down user goals into structured daily action plans using the Claude API. Handles context retention across sessions and outputs prioritised task queues.",
+    tags: ["Next.js", "Claude API", "TypeScript"],
     accent: "#FF6B00",
     accentRgb: "255,107,0",
     icon: "✦",
     status: "Live",
+    link: "https://genie-dream-ignite.lovable.app",
   },
   {
     name: "HIRA",
     tagline: "Human Intelligence & Resonance Amplifier",
     description:
-      "A coaching AI that analyses your communication patterns and emotional blocks, then delivers personalised frequency-raising protocols.",
+      "NLP-powered coaching assistant that analyses communication patterns, detects sentiment shifts, and generates personalised improvement protocols via OpenAI.",
     tags: ["Python", "OpenAI", "NLP"],
     accent: "#BFFF00",
     accentRgb: "191,255,0",
@@ -27,9 +40,9 @@ const PROJECTS = [
   },
   {
     name: "SocietyOS",
-    tagline: "The OS for Conscious Communities",
+    tagline: "Community Management Platform",
     description:
-      "A platform enabling high-frequency individuals to organise, collaborate, and co-create abundance at scale — decentralised and sovereign.",
+      "Decentralised community platform with governance tooling, collaborative workspaces, and Web3 wallet-based member authentication and treasury management.",
     tags: ["React", "Node.js", "Web3"],
     accent: "#FF6B00",
     accentRgb: "255,107,0",
@@ -38,9 +51,9 @@ const PROJECTS = [
   },
   {
     name: "Crypto System",
-    tagline: "Abundance Multiplier for the Digital Age",
+    tagline: "Algorithmic Trading System",
     description:
-      "An algorithmic approach to crypto markets informed by LOA principles — aligning financial frequency with disciplined, systematic strategy.",
+      "Backtested algorithmic trading system with signal generation, portfolio tracking, and automated execution via TradingView webhooks and DeFi protocol APIs.",
     tags: ["Python", "TradingView", "DeFi"],
     accent: "#BFFF00",
     accentRgb: "191,255,0",
@@ -49,9 +62,9 @@ const PROJECTS = [
   },
   {
     name: "JARVIS",
-    tagline: "Personal AI Chief of Staff",
+    tagline: "Personal AI Assistant",
     description:
-      "A deeply personalised AI assistant that manages schedules, filters noise, and keeps your daily reality aligned with your highest vision.",
+      "LangChain-orchestrated AI assistant handling calendar management, task prioritisation, and information triage via GPT-4o and Google Workspace API integrations.",
     tags: ["LangChain", "GPT-4o", "Automation"],
     accent: "#FF6B00",
     accentRgb: "255,107,0",
@@ -147,8 +160,7 @@ export default function Projects() {
             className="text-lg max-w-2xl"
             style={{ color: "rgba(255,255,255,0.44)" }}
           >
-            Five AI systems at the intersection of consciousness and code —
-            each one engineered to raise your operating frequency.
+            Six AI systems and productivity tools — each built to solve a real problem.
           </motion.p>
         </div>
 
@@ -238,7 +250,7 @@ export default function Projects() {
                 </p>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
@@ -253,6 +265,22 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
+
+                {"link" in project && project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-auto text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full self-start"
+                    style={{
+                      color: project.accent,
+                      border: `1px solid ${project.accent}40`,
+                      background: `rgba(${project.accentRgb},0.08)`,
+                    }}
+                  >
+                    Visit →
+                  </a>
+                )}
               </motion.div>
             );
           })}
