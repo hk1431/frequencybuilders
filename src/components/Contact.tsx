@@ -4,10 +4,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 const SOCIAL_LINKS = [
-  { label: "Instagram", handle: "@frequencybuilders", href: "#" },
-  { label: "YouTube", handle: "FrequencyBuilders", href: "#" },
-  { label: "Twitter / X", handle: "@frequencybuilders", href: "#" },
-  { label: "LinkedIn", handle: "FrequencyBuilders", href: "#" },
+  { label: "Instagram", handle: "@frequencybuilders", href: "https://www.instagram.com/frequencybuilders" },
 ];
 
 export default function Contact() {
@@ -137,7 +134,9 @@ export default function Contact() {
             transition={{ duration: 0.75, delay: 0.35 }}
           >
             <a
-              href="#"
+              href="https://wa.me/917600460563"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-sm transition-all duration-300"
               style={{ border: "1px solid rgba(191,255,0,0.25)", color: "#BFFF00" }}
               onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.background = "rgba(191,255,0,0.06)"; el.style.boxShadow = "0 0 24px rgba(191,255,0,0.15)"; }}
