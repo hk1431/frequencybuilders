@@ -75,7 +75,7 @@ function MagneticImage() {
         {/* Image */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/deepak-3d.jpg"
+          src="/deepak-animated.gif"
           alt="Deepak Sharma — FrequencyBuilders"
           className="relative block rounded-2xl object-cover"
           style={{
