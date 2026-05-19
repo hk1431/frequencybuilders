@@ -1,14 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",      // static HTML export for GitHub Pages
-  trailingSlash: true,   // /about → /about/index.html (required for GH Pages)
+  output: "export",
+  trailingSlash: true,
   images: {
-    unoptimized: true,   // next/image optimisation is server-only
+    unoptimized: true,
   },
-  // If deploying to https://<user>.github.io/<repo>/ (not a custom domain),
-  // uncomment and set basePath to your repo name:
-  // basePath: "/frequencybuilders",
+  basePath: "/frequencybuilders",
+  assetPrefix: "/frequencybuilders",
 };
 
 export default nextConfig;
