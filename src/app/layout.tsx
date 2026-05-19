@@ -8,9 +8,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "FrequencyBuilders — Law of Attraction Coaching by Deepak Sharma",
+  title: "FrequencyBuilders — Digital Agency | Brands, Socials & AI",
   description:
-    "Work with Deepak Sharma to rewire your subconscious signal, align with abundance, and start attracting what you were always meant to have.",
+    "Full-service digital agency building brands, running social media, producing video ads, and creating AI systems. Book a free call today.",
 };
 
 export default function RootLayout({
