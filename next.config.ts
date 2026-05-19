@@ -6,8 +6,6 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: "/frequencybuilders",
-  assetPrefix: "/frequencybuilders",
 };
 
 export default nextConfig;
