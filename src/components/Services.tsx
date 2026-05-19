@@ -1,6 +1,44 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+
+function AnimatedChar({
+  char,
+  progress,
+  index,
+  total,
+}: {
+  char: string;
+  progress: MotionValue<number>;
+  index: number;
+  total: number;
+}) {
+  const start = index / total;
+  const end = Math.min((index + 1) / total, 1);
+  const opacity = useTransform(progress, [start, end], [0.15, 1]);
+  return (
+    <motion.span style={{ opacity }} className="inline-block">
+      {char === " " ? " " : char}
+    </motion.span>
+  );
+}
+
+function CharacterText({ text, className, style }: { text: string; className?: string; style?: React.CSSProperties }) {
+  const ref = useRef<HTMLParagraphElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 0.85", "end 0.25"],
+  });
+  const chars = text.split("");
+  return (
+    <p ref={ref} className={className} style={style}>
+      {chars.map((char, i) => (
+        <AnimatedChar key={i} char={char} progress={scrollYProgress} index={i} total={chars.length} />
+      ))}
+    </p>
+  );
+}
 
 const SERVICES = [
   {
@@ -85,16 +123,11 @@ export default function Services() {
             </span>
           </motion.h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-lg max-w-2xl"
-            style={{ color: "rgba(255,255,255,0.44)" }}
-          >
-            We handle the digital side so you can focus on the work that matters.
-          </motion.p>
+          <CharacterText
+            text="We handle the digital side so you can focus on the work that matters."
+            className="text-lg max-w-2xl leading-relaxed"
+            style={{ color: "rgba(255,255,255,0.88)" }}
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
