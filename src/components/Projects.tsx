@@ -34,6 +34,7 @@ const PROJECTS = [
     accentRgb: "255,107,0",
     icon: "◈",
     status: "Beta",
+    whatsapp: "https://wa.me/917600460563?text=Hi%2C%20I%20want%20to%20see%20HIRA%20demo",
   },
   {
     name: "SocietyOS",
@@ -178,6 +179,20 @@ export default function Projects() {
                     onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = `rgba(${project.accentRgb},0.08)`; }}
                   >
                     Visit →
+                  </a>
+                )}
+
+                {"whatsapp" in project && project.whatsapp && (
+                  <a
+                    href={project.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-auto text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full self-start transition-all duration-200"
+                    style={{ color: project.accent, border: `1px solid ${project.accent}40`, background: `rgba(${project.accentRgb},0.08)` }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = `rgba(${project.accentRgb},0.18)`; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = `rgba(${project.accentRgb},0.08)`; }}
+                  >
+                    Request Demo →
                   </a>
                 )}
               </motion.div>

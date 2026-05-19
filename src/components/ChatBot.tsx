@@ -103,6 +103,10 @@ export default function ChatBot() {
             `We'll be in touch soon. Talk to you then! ✦`
         );
         setStep("done");
+        const waText = encodeURIComponent(
+          `New lead from FrequencyBuilders:\nName: ${finalLead.name}\nBusiness: ${finalLead.business}\nService: ${finalLead.service}\nBest time to call: ${value}`
+        );
+        window.open(`https://wa.me/917600460563?text=${waText}`, "_blank");
       }, 500);
     }
   };
