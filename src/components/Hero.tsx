@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import Stars from "./Stars";
 
 const container = {
@@ -19,6 +20,76 @@ const STATS = [
 ];
 
 const RINGS = [1, 2, 3, 4, 5];
+
+function MagneticImage() {
+  const ref = useRef<HTMLDivElement>(null);
+  const rawX = useMotionValue(0);
+  const rawY = useMotionValue(0);
+  const x = useSpring(rawX, { stiffness: 120, damping: 18, mass: 0.6 });
+  const y = useSpring(rawY, { stiffness: 120, damping: 18, mass: 0.6 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    rawX.set((e.clientX - cx) * 0.22);
+    rawY.set((e.clientY - cy) * 0.22);
+  };
+
+  const handleMouseLeave = () => {
+    rawX.set(0);
+    rawY.set(0);
+  };
+
+  return (
+    <div
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="flex items-center justify-center cursor-pointer"
+      style={{ padding: "24px" }}
+    >
+      <motion.div style={{ x, y }} className="relative">
+        {/* Outer glow ring */}
+        <div
+          className="absolute rounded-2xl pointer-events-none"
+          style={{
+            inset: "-3px",
+            background: "linear-gradient(135deg, rgba(255,107,0,0.6), rgba(191,255,0,0.3))",
+            filter: "blur(2px)",
+            borderRadius: "20px",
+          }}
+        />
+        {/* Ambient glow */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            inset: "-30px",
+            background: "radial-gradient(ellipse, rgba(255,107,0,0.28) 0%, rgba(255,107,0,0.08) 50%, transparent 70%)",
+            filter: "blur(20px)",
+            borderRadius: "50%",
+          }}
+        />
+        {/* Image */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/deepak-3d.jpg"
+          alt="Deepak Sharma — FrequencyBuilders"
+          className="relative block rounded-2xl object-cover"
+          style={{
+            width: "clamp(280px, 35vw, 400px)",
+            height: "auto",
+            boxShadow: "0 0 60px rgba(255,107,0,0.35), 0 0 120px rgba(255,107,0,0.12), 0 24px 48px rgba(0,0,0,0.5)",
+            border: "1px solid rgba(255,107,0,0.25)",
+          }}
+          draggable={false}
+        />
+      </motion.div>
+    </div>
+  );
+}
 
 export default function Hero() {
   return (
@@ -100,13 +171,18 @@ export default function Hero() {
 
         <motion.p
           variants={item}
-          className="text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
           style={{ color: "rgba(255,255,255,0.42)" }}
         >
           Full-service digital agency — websites, social media, video ads, and AI systems.
         </motion.p>
 
-        <motion.div variants={item} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        {/* Magnetic character image */}
+        <motion.div variants={item}>
+          <MagneticImage />
+        </motion.div>
+
+        <motion.div variants={item} className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
             href="#contact"
             className="px-9 py-4 rounded-full font-bold text-base text-black transition-all duration-300 hover:scale-105 active:scale-95"
