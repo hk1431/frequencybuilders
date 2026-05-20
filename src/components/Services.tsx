@@ -77,7 +77,7 @@ const SERVICES = [
 
 export default function Services() {
   return (
-    <section id="services" className="relative py-28 md:py-36 px-4 overflow-hidden">
+    <section id="services" className="relative py-12 md:py-28 lg:py-36 px-4 overflow-hidden">
       <div className="absolute inset-0 bg-[#020209]" />
 
       <div
@@ -95,7 +95,7 @@ export default function Services() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="mb-16">
+        <div className="mb-8 md:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -43,7 +43,7 @@ const STEPS = [
 
 export default function Methodology() {
   return (
-    <section id="loa-coaching" className="relative py-28 md:py-36 px-4 overflow-hidden">
+    <section id="loa-coaching" className="relative py-12 md:py-28 lg:py-36 px-4 overflow-hidden">
       <div className="absolute inset-0 bg-[#020209]" />
 
       <div
@@ -57,7 +57,7 @@ export default function Methodology() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="text-center mb-20">
+        <div className="text-center mb-10 md:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

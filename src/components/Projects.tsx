@@ -71,16 +71,13 @@ function StickyCard({ project, index }: { project: typeof PROJECTS[0]; index: nu
   const statusStyle = STATUS_STYLE[project.status] ?? { color: "rgba(255,255,255,0.4)", bg: "rgba(255,255,255,0.06)" };
 
   return (
-    <div
-      ref={sectionRef}
-      style={{ height: "calc(80vh + 4rem)", position: "relative" }}
-    >
+    <div ref={sectionRef} className="project-card-wrapper">
       <div
         style={{
           position: "sticky",
-          top: "7rem",
+          top: "5rem",
           zIndex: index + 1,
-          paddingBottom: "1.5rem",
+          paddingBottom: "0.5rem",
         }}
       >
         <motion.div
@@ -92,7 +89,7 @@ function StickyCard({ project, index }: { project: typeof PROJECTS[0]; index: nu
           transition={{ duration: 0.6 }}
         >
           <div
-            className="relative rounded-3xl p-8 md:p-12"
+            className="relative rounded-3xl p-4 sm:p-6 md:p-10"
             style={{
               background: "#07070f",
               border: "2px solid #FF6B00",
@@ -109,11 +106,11 @@ function StickyCard({ project, index }: { project: typeof PROJECTS[0]; index: nu
               {project.number}
             </div>
 
-            <div className="relative z-10 flex flex-col md:flex-row md:items-start gap-8 md:gap-16">
+            <div className="relative z-10 flex flex-col md:flex-row md:items-start gap-4 md:gap-16">
               {/* Left column */}
-              <div className="flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-6 flex-shrink-0">
+              <div className="flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-6 flex-shrink-0">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-bold"
+                  className="w-10 h-10 md:w-16 md:h-16 rounded-xl md:rounded-2xl flex items-center justify-center text-base md:text-2xl font-bold"
                   style={{
                     background: `rgba(${project.accentRgb},0.12)`,
                     color: project.accent,
@@ -141,29 +138,29 @@ function StickyCard({ project, index }: { project: typeof PROJECTS[0]; index: nu
               {/* Right column */}
               <div className="flex-1 min-w-0">
                 <h3
-                  className="font-black text-white tracking-tight mb-1"
-                  style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
+                  className="font-black text-white tracking-tight mb-0.5"
+                  style={{ fontSize: "clamp(1.5rem, 5vw, 3.5rem)" }}
                 >
                   {project.name}
                 </h3>
                 <p
-                  className="text-base font-semibold mb-4"
+                  className="text-xs md:text-base font-semibold mb-2 md:mb-4"
                   style={{ color: project.accent }}
                 >
                   {project.tagline}
                 </p>
                 <p
-                  className="text-base leading-relaxed mb-6 max-w-xl"
+                  className="text-xs md:text-base leading-relaxed mb-3 md:mb-6 max-w-xl"
                   style={{ color: "rgba(255,255,255,0.48)" }}
                 >
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-1.5 md:gap-2 mb-3 md:mb-6">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs font-medium px-3 py-1.5 rounded-full"
+                      className="text-[10px] md:text-xs font-medium px-2 py-1 md:px-3 md:py-1.5 rounded-full"
                       style={{
                         background: "rgba(255,255,255,0.05)",
                         color: "rgba(255,255,255,0.5)",
@@ -228,7 +225,7 @@ export default function Projects() {
       />
 
       {/* Section header */}
-      <div className="relative z-10 max-w-7xl mx-auto pt-28 pb-16">
+      <div className="relative z-10 max-w-7xl mx-auto pt-10 pb-4 md:pt-28 md:pb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -269,7 +266,7 @@ export default function Projects() {
       </div>
 
       {/* Sticky stacking cards */}
-      <div className="max-w-7xl mx-auto pb-16">
+      <div className="max-w-7xl mx-auto pb-4 md:pb-16">
         {PROJECTS.map((project, i) => (
           <StickyCard key={project.name} project={project} index={i} />
         ))}
