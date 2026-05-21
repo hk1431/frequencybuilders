@@ -30,16 +30,12 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <a href="/" className="flex items-center gap-2.5 group">
-            <div
-              className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-shadow duration-300 group-hover:shadow-[0_0_20px_rgba(255,107,0,0.6)]"
-              style={{ background: "linear-gradient(135deg, #FF6B00, #BFFF00)" }}
-            >
-              <span className="text-black font-bold text-[11px] tracking-tight">FB</span>
-            </div>
-            <span className="text-white font-bold text-lg tracking-tight">
-              Frequency<span style={{ color: "#FF6B00" }}>Builders</span>
-            </span>
+          <a href="/" className="flex items-center group">
+            <img
+              src="/logo.png"
+              alt="Frequency Builders"
+              style={{ height: "40px", width: "auto" }}
+            />
           </a>
 
           <div className="hidden md:flex items-center gap-8">
