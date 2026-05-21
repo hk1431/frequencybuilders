@@ -34,7 +34,7 @@ export default function Navbar() {
             <img
               src="/logo.png"
               alt="Frequency Builders"
-              style={{ height: "40px", width: "auto" }}
+              style={{ height: "80px", width: "auto" }}
             />
           </a>
 
