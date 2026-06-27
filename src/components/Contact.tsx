@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 const SOCIAL_LINKS = [
-  { label: "Instagram", handle: "@frequencybuilders", href: "https://www.instagram.com/frequencybuilders" },
+  { label: "Instagram", handle: "@deepakaistudio", href: "https://www.instagram.com/frequencybuilders" },
 ];
 
 export default function Contact() {
