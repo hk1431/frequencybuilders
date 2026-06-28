@@ -14,7 +14,7 @@ const PROJECTS = [
     accentRgb: "255,107,0",
     icon: "✦",
     status: "Live",
-    link: "https://genie-dream-ignite.lovable.app",
+    link: "https://dscoach.netlify.app/",
   },
   {
     number: "02",
